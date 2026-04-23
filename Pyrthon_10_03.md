@@ -185,11 +185,17 @@ for x in range(0, 2):
 # Вариант 5
 # ТИП 2
 ## № 15970
-
+Составим таблицу истинности для выражения (x ∧ ¬y) ∨ (y ≡ z ) ∨ w.
 ```
-
+print("x y z w")
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if not((x and not(y)) or (y == z) or w):
+                    print(x, y, z, w)
 ```
-# Ответ:
+# Ответ: yxwz
 # ТИП 8
 ## № 17328
 
@@ -201,11 +207,17 @@ for x in range(0, 2):
 # Вариант 6
 # ТИП 2
 ## № 18614
-
+Составим таблицу истинности для выражения ((w → ¬x) ≡ (z → y)) ∧ (y ∨ w).
 ```
-
+print("x y z w")
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if (((w <= (not x)) == (z <= y)) and (y or w)):
+                    print(x, y, z, w)
 ```
-# Ответ:
+# Ответ: xwyz
 # ТИП 8
 ## № 27539
 
@@ -217,11 +229,19 @@ for x in range(0, 2):
 # Вариант 7
 # ТИП 2
 ## № 55589
-
+Составим таблицу истинности для выражения F1  =  (x → y)≡(w ∨ ¬ z),
+                                          F2  =  (x → y)∧(¬w≡z).
 ```
-
+print("x y z w f1 f2")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                f1 = ((x <= y) == (w or not z))
+                f2 = ((x <= y) and (not w == z))
+                print(x, y, z, w, " ", int(f1), " ", int(f2))
 ```
-# Ответ:
+# Ответ: xyzw
 # ТИП 8
 ## № 18491
 
@@ -233,11 +253,17 @@ for x in range(0, 2):
 # Вариант 8
 # ТИП 2
 ## № 48423
-
+Составим таблицу истинности для выражения (x → (y ≡ w)) ∧ (y ≡ (w → z))
 ```
-
+print("x y z w")
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if (x <= (y == w)) and (y == (w <= z)):
+                    print(x, y, z, w)
 ```
-# Ответ:
+# Ответ: yxwz
 # ТИП 8
 ## № 37143
 
@@ -249,11 +275,17 @@ for x in range(0, 2):
 # Вариант 9
 # ТИП 2
 ## № 15787
-
+Составим таблицу истинности для выражения ((x → y ) ∧ (y → w)) ∨ (z ≡ ( x ∨ y))
 ```
-
+print("x y z w")
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if not(((x <= y ) and (y <= w )) or ( z == (x or y ))):
+                    print(x, y, z, w)
 ```
-# Ответ:
+# Ответ: ywzx
 # ТИП 8
 ## № 59745
 
@@ -265,11 +297,17 @@ for x in range(0, 2):
 # Вариант 10
 # ТИП 2
 ## № 85678
-
+Составим таблицу истинности для выражения ¬w ∨ ((z → x) → y).
 ```
-
+print("x y z w")
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if not(not(w) or ((z <= x) <= y)):
+                    print(x, y, z, w)
 ```
-# Ответ:
+# Ответ: yxwz
 # ТИП 8
 ## № 10473
 
@@ -281,11 +319,17 @@ for x in range(0, 2):
 # Вариант 11
 # ТИП 2
 ## № 18578
-
+Составим таблицу истинности для выражения ((x ∧ ¬y) ∨ (w → z)) ≡ (z ≡ x).
 ```
-
+print("x y z w")
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if ((x and not y ) or (w <= z)) == (z == x):
+                    print(x, y, z, w)
 ```
-# Ответ:
+# Ответ: zywx
 # ТИП 8
 ## № 60250
 
@@ -361,11 +405,17 @@ for x in range(0, 2):
 # Вариант 16
 # ТИП 2
 ## № 73828
-
+Составим таблицу истинности для выражения (x ≡ (y → z)) ∧ (y ≡ ¬(z → w)).
 ```
-
+print('x y w z')
+for x in range(0, 2):
+    for y in range(0, 2):
+        for z in range(0, 2):
+            for w in range(0, 2):
+                if (x == (y <= z )) and (y == (not(z <= w))):
+                    print(x,y,z,w)
 ```
-# Ответ:
+# Ответ: wzxy
 # ТИП 8
 ## № 28546
 
