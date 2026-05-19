@@ -98,23 +98,6 @@ for x in range(0, 2):
                     print(x, y, z, w)
 ```
 # Ответ: wzyx
-## № 35460
-Составим таблицу истинности для выражения ¬((x ∨ y) → (z ∧ w)) ∧ (x → w)
-|?|?|?|?|?|
-|:-:|:-:|:-:|:-:|:-:|
-||||||
-||||||
-||||||
-```
-print("x y z w")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            for w in range(0, 2):
-                if not((x or y) <= (z and w)) and (x <= w):
-                    print(x, y, z, w)
-``` 
-# Ответ: zxyw
 # ТИП 8
 ## № 7667
 
