@@ -22,7 +22,9 @@ number = 1
 for i in product("ВИНТ", repeat=5):
     print(number, i)
     number += 1
-ЛИБО
+```
+ЛИБО чтобы точно выдал номер 1019 без других
+```
 from itertools import *
 number = 1
 for i in product("ВИНТ", repeat=5):
