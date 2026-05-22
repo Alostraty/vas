@@ -23,7 +23,7 @@ for i in product("ВИНТ", repeat=5):
     print(number, i)
     number += 1
 ```
-ЛИБО чтобы точно выдал номер 1019 без других
+ЛИБО, чтобы точно выдал номер (1019), остальные нет
 ```
 from itertools import *
 number = 1
