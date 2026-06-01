@@ -562,16 +562,26 @@ for x in range(0, 2):
 ||||||
 ||||||
 ```
-
+print("x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x == z) <= (not(y) or w)) == (not((w <= z) or (x <= y))):
+                    print(x,y,z,w)
 ```
-# Ответ:
+# Ответ: zyxw
 # ТИП 8
 ## № 3237
 
 ```
-
+from itertools import *
+number = 0
+for i in product("АОУ",repeat=5):
+    number += 1
+    print(number, i)
 ```
-# Ответ:
+# Ответ: УААУО
 
 # Вариант 20
 # ТИП 2
@@ -583,16 +593,27 @@ for x in range(0, 2):
 ||||||
 ||||||
 ```
-
+print("x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x == y) <= (not(z) or w )) == (not((w <= x ) or (y <= z))):
+                    print(x,y,z,w)
 ```
-# Ответ:
+# Ответ: wzyx
 # ТИП 8
 ## № 13486
 
 ```
-
+from itertools import *
+count = 0
+for i in product('ABCX', repeat=5):
+    if i.count('X') == 1 and (i[0] == 'X' or i[4] == 'X'):
+        count += 1
+print(count)
 ```
-# Ответ:
+# Ответ:162
 
 # Вариант 21
 # ТИП 2
