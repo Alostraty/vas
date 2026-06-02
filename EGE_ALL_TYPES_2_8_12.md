@@ -37,7 +37,19 @@ for i in product("ВИНТ", repeat=5):
 ## 2
 
 ```
-
+i1 = 'ЯРОСЛАВ'
+count = 0
+for Я in i1:
+    for Р in i1:
+        for О in i1:
+            for С in i1:
+                for Л in i1:
+                    for А in i1:
+                        for В in i1:
+                            i = Я + Р + О + С + Л + А + В
+                            if i.count('Я') <= 1 and i.count('Р') <= 1 and i.count('О') <= 1 and i.count('С') <= 1 and i.count('Л') <= 1 and i.count('А') <= 1 and i.count('В') <= 1 and i.count('Р') + i.count('С') + i.count('Л') + i.count('В') > i.count('Я') + i.count('О') + i.count('А') and i.count('ЯО') == 0 and i.count('ЯА') == 0 and i.count('ОА') == 0 and i.count('ОЯ') == 0 and i.count('АЯ') == 0 and i.count('АО') == 0:
+                                count += 1
+print(count, i)
 ```
 Ответ:
 ## 3
