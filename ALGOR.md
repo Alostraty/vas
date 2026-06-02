@@ -29,11 +29,11 @@ for x in range(0, 2):
 Запишите слово, которое стоит под номером 1019.
 ```
 from itertools import *
-number = 1
-for i in product("ВИНТ", repeat=5):
-    print(number, i)
+number = 0
+for i in product("ВИНТ",repeat=5):
     number += 1
-
+    if number == 1019:
+        print(number, i)
 ```
 # Ответ: ТТТНН
 
@@ -48,20 +48,33 @@ for i in product("ВИНТ", repeat=5):
 |||1|0|
 ```
 print("x y z")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            if not((x == y) or ((y or z) <= x)):
-                print(x, y, z)
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            if ((x == y) or ((y or z ) <= x)) ==0:
+                print(x,y,z)
 ```
 # Ответ: xzy
 # ТИП 8
 ## № 78064
- ! ! ! ! !
+Все 5⁠-⁠буквенные слова, в составе которых могут быть только буквы К, Р, О, В, А, Т, Ь, записаны в алфавитном порядке и пронумерованы.
+##### 1.ААААА
+##### 2.ААААВ
+##### 3.ААААК
+##### 4.ААААО
+##### 5.ААААР
+##### 6.ААААТ
+Под каким номером в списке идёт последнее слово c нечётным номером, которое содержит не более одной буквы Т, две буквы В и не содержит букв Ь, стоящих рядом?
 ```
-
+from itertools import product
+count = 0
+for p in product(sorted("КРОВАТЬ"), repeat=5):
+    count += 1
+    s = ''.join(p)
+    if count%2 != 0 and ("ЬЬ" not in s) and s.count("В") == 2 and s.count("Т") <= 1:
+        print(count)
 ```
-# Ответ:
+# Ответ: 16277
 
 # Вариант 3
 # ТИП 2
@@ -74,19 +87,31 @@ for x in range(0, 2):
 ||1|0|0|1|
 ```
 print("x y z w")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            for w in range(0, 2):
-                if (x or y) and not(y == z) and not(w):
-                    print(x, y, z, w)
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (x or y) and (not(y == z)) and (not(w)):
+                    print(x,y,z,w)
 ```
 # Ответ: xzyw
 # ТИП 8
 ## № 55625
-
+Ярослав составляет коды из букв, входящих в слово ЯРОСЛАВ. Код должен состоять из 5 букв, буквы в коде не должны повторяться, согласных в коде должно быть больше, чем гласных, две гласные буквы нельзя ставить рядом. Сколько кодов может составить Ярослав?
 ```
-
+i1 = 'ЯРОСЛАВ'
+count = 0
+for Я in i1:
+    for Р in i1:
+        for О in i1:
+            for С in i1:
+                for Л in i1:
+                    for А in i1:
+                        for В in i1:
+                            i = Я + Р + О + С + Л + А + В
+                            if i.count('Я') <= 1 and i.count('Р') <= 1 and i.count('О') <= 1 and i.count('С') <= 1 and i.count('Л') <= 1 and i.count('А') <= 1 and i.count('В') <= 1 and i.count('Р') + i.count('С') + i.count('Л') + i.count('В') > i.count('Я') + i.count('О') + i.count('А') and i.count('ЯО') == 0 and i.count('ЯА') == 0 and i.count('ОА') == 0 and i.count('ОЯ') == 0 and i.count('АЯ') == 0 and i.count('АО') == 0:
+                                count += 1
+print(count, i)
 ```
 # Ответ:
 
