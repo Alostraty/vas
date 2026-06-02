@@ -17,6 +17,14 @@ for x in range(0, 2):
                 if ((x <= y) or (y == w)) and ((x or z) == w):
                     print(x, y, z, w)
 ```
+|X|Y|Z|W|+-|
+|:-:|:-:|:-:|:-:|:-:|
+|0|0|0|0|-|
+|0|0|1|1|+1стр|
+|0|1|0|0|+-3стр|
+|0|1|1|1|+-3стр|
+|1|1|0|1|+2стр|
+|1|1|1|1|-|
 # Ответ: zyxw
 # ТИП 8
 ## № 3697
@@ -54,6 +62,10 @@ for x in range(2):
             if ((x == y) or ((y or z ) <= x)) ==0:
                 print(x,y,z)
 ```
+|X|Y|Z|
+|:-:|:-:|:-:|
+|0|1|0|
+|0|1|1|
 # Ответ: xzy
 # ТИП 8
 ## № 78064
@@ -94,6 +106,11 @@ for x in range(2):
                 if (x or y) and (not(y == z)) and (not(w)):
                     print(x,y,z,w)
 ```
+|X|Y|Z|W|
+|:-:|:-:|:-:|:-:|
+|0|1|0|0|
+|1|0|1|0|
+|1|1|0|0|
 # Ответ: xzyw
 # ТИП 8
 ## № 55625
@@ -118,7 +135,7 @@ print(count, i)
 # Вариант 4
 # ТИП 2
 ## № 15618
- (x ∧ ¬y) ∨ (y ≡ z) ∨ ¬w
+Составим таблицу истинности для выражения (x ∧ ¬y) ∨ (y ≡ z) ∨ ¬w
 |Перем. 1|Перем. 2|Перем. 3|Перем. 4|
 |:-:|:-:|:-:|:-:|
 |???|???|???|???|
@@ -127,13 +144,18 @@ print(count, i)
 |1||0|0|
 ```
 print("x y z w")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            for w in range(0, 2):
-                if not((x and not(y)) or (y == z)  or not(w)):
-                    print(x, y, z, w)
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x and (not(y))) or (y == z) or (not(w))) == 0:
+                    print(x,y,z,w)
 ```
+|X|Y|Z|W|
+|:-:|:-:|:-:|:-:|
+|0|0|1|1|
+|0|1|0|1|
+|1|1|0|1|
 # Ответ: wzyx
 # ТИП 8
 ## № 7667
@@ -141,13 +163,21 @@ for x in range(0, 2):
 ```
 from itertools import *
 count = 0
-for i in product("ЕГЭ", repeat=5):
-    a = ''.join(i)
-    if a[0] in 'ЕЭ':
-        count += 1
-print(count)
+for i in product('ЕГЭ',repeat=5):
+    count += 1
+    print(count, i)
 ```
-# Ответ: 162
+Получилось 243, потом вычитаем 162, где окончивается буква Г, потом плюсуем букву 81, где заканчивается буква Е = 243-162+81=162
+# ИЛИ
+```
+from itertools import *
+count = 0
+for i in product('ЕГЭ',repeat=5):
+    if i[0] in 'ЕЭ':
+        count += 1
+    print(count, i)
+```
+# Ответ: 162 ЭЭЭЭЭ
 
 # Вариант 5
 # ТИП 2
@@ -161,19 +191,36 @@ print(count)
 |1|1|0||0|
 ```
 print("x y z w")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            for w in range(0, 2):
-                if not((x and not(y)) or (y == z) or w):
-                    print(x, y, z, w)
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x and (not(y))) or (y == z) or (w)) == 0:
+                    print(x,y,z,w)
 ```
+|X|Y|Z|W|
+|:-:|:-:|:-:|:-:|
+|0|0|1|0|
+|0|1|0|0|
+|1|1|0|0|
 # Ответ: yxwz
 # ТИП 8
 ## № 17328
-
+Герасим составляет 7-⁠буквенные коды из букв Г, Е, Р, А, С, И, М. Каждую букву нужно использовать ровно 1 раз, при этом нельзя ставить подряд две гласные или две согласные. Сколько различных кодов может составить Герасим?
 ```
-
+i1 = 'ГЕРАСИМ'
+count = 0
+for Г in i1:
+    for Е in i1:
+        for Р in i1:
+            for А in i1:
+                for С in i1:
+                    for И in i1:
+                        for М in i1:
+                            i = Г + Е + Р + А + С + И + М
+                            if i.count('Г') == 1 and i.count('Е') == 1 and i.count('Р') == 1 and i.count('А') == 1 and i.count('С') == 1 and i.count('И') == 1 and i.count('М') == 1 and i.count('ГР') == 0 and i.count('РГ') == 0  and i.count('ГС') == 0  and i.count('СГ') == 0  and i.count('ГМ') == 0  and i.count('МГ') == 0  and i.count('РС') == 0  and i.count('СР') == 0  and i.count('РМ') == 0   and i.count('МР') == 0  and i.count('СМ') == 0  and i.count('МС') == 0  and i.count('ЕА') == 0  and i.count('АЕ') == 0  and i.count('ЕИ') == 0  and i.count('ИЕ') == 0  and i.count('АИ') == 0  and i.count('ИА') == 0 :
+                                count += 1
+print(count, i)
 ```
 # Ответ:
 
