@@ -330,6 +330,7 @@ for a in i1:
                         count += 1
 print(count)
 ```
+ААААА
 # Ответ: 48
 
 # Вариант 8
@@ -384,18 +385,19 @@ print(count)
 ||1||1|0|
 ```
 print("x y z w")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            for w in range(0, 2):
-                if not(((x <= y ) and (y <= w )) or ( z == (x or y ))):
-                    print(x, y, z, w)
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x <= y ) and (y <= w )) or (z == (x or y))) == 0:
+                    print(x,y,z,w)
 ```
 |X|Y|Z|W|
 |:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|0|1|0|0|
+|1|0|0|0|
+|1|0|0|1|
+|1|1|0|0|
 # Ответ: ywzx
 # ТИП 8
 ## № 59745
@@ -413,11 +415,11 @@ for x in range(0, 2):
 from itertools import *
 number = 0
 count = 0
-for i in product("АЛГОРИТМ", repeat=5):
-    if number % 2 != 0 and  i[0] != "Г" and i.count("И") >= 2:
+for i in product('АЛГОРИТМ', repeat=5):
+    if i.count("И") >= 2 and i[0] != ('Г') and number % 2 != 0:
         count += 1
     number += 1
-    print(count)
+print(count)
 ```
 # Ответ: 2429
 
@@ -431,19 +433,19 @@ for i in product("АЛГОРИТМ", repeat=5):
 |0|1||0|0|
 ||||1|0|
 ```
-print("x y z w")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            for w in range(0, 2):
-                if not(not(w) or ((z <= x) <= y)):
-                    print(x, y, z, w)
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((not(w)) or ((z <= x) <= y)) == 0:
+                    print(x,y,z,w)
 ```
-|X|Y|Z|W|
-|:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|X|Y|Z|W|+-|
+|:-:|:-:|:-:|:-:|:-:|
+|0|0|0|1|+1стр|
+|1|0|0|1|+2стр|
+|1|0|1|1|+3стр|
 # Ответ: yxwz
 # ТИП 8
 ## № 10473
@@ -456,6 +458,21 @@ for i in product("1234", repeat=5):
         count += 1
     print(count)
 ```
+ИЛИ
+```
+i1 = '1234'
+count = 0
+for x in i1:
+    for y in i1:
+        for z in i1:
+            for w in i1:
+                for h in i1:
+                    i = x + y + z + w + h
+                    if i.count('1') == 2:
+                        count += 1
+                print(count,i)
+```
+44444
 # Ответ: 270
 
 # Вариант 11
@@ -469,27 +486,42 @@ for i in product("1234", repeat=5):
 |0|1|0|0|1|
 |0|||1|1|
 ```
-print("x y z w")
-for x in range(0, 2):
-    for y in range(0, 2):
-        for z in range(0, 2):
-            for w in range(0, 2):
-                if ((x and not y ) or (w <= z)) == (z == x):
-                    print(x, y, z, w)
+print(" x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((( x and (not(y))) or (w <= z)) == (z == x)) == 1:
+                    print(x,y,z,w)
 ```
-|X|Y|Z|W|
-|:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|X|Y|Z|W|+-|
+|:-:|:-:|:-:|:-:|:-:|
+|0|0|0|0|-|
+|0|1|0|0|+2стр|
+|1|0|1|0|+1стр|
+|1|0|1|1|-|
+|1|1|0|1|+3стр|
+|1|1|1|0|-|
+|1|1|1|1|-|
 # Ответ: zywx
 # ТИП 8
 ## № 60250
-
+Сколько существует восьмеричных пятизначных чисел, не содержащих в своей записи цифру 1, в которых все цифры различны и никакие две чётные или две нечётные цифры не стоят рядом?
 ```
-
+i1 = '01234567'
+count = 0
+for x in '1234567': #без 0 будет 216
+    for y in i1:
+        for z in i1:
+            for w in i1:
+                for h in i1:
+                    i = x + y + z + w + h
+                    if i.count('1') == 0 and i.count('1') <= 1 and i.count('0') <= 1 and i.count('2') <= 1 and i.count('3') <= 1 and i.count('4') <= 1 and i.count('5') <= 1 and i.count('6') <= 1 and i.count('7') <= 1 and i.count('00') == 0 and i.count('22') == 0 and i.count('44')== 0 and i.count('66')== 0 and i.count('02')== 0 and i.count('20')== 0 and i.count('04')== 0 and i.count('40') == 0 and i.count('06')== 0   and i.count('60')== 0 and i.count('24')== 0 and i.count('42')== 0 and i.count('26')== 0 and i.count('62')== 0 and i.count('46')== 0 and i.count('64')== 0 and i.count('13')== 0 and i.count('31')== 0 and i.count('15')== 0 and i.count('51')== 0 and i.count('17')== 0 and i.count('71')== 0 and i.count('35')== 0 and i.count('53')== 0 and i.count('37')== 0 and i.count('73')== 0 and i.count('57')== 0 and i.count('75') == 0:
+                        count += 1
+print(count,i)
 ```
-# Ответ:
+77777
+# Ответ: 180
 
 # Вариант 12
 # ТИП 2
@@ -506,16 +538,14 @@ for x in range(2):
     for y in range(2):
         for z in range(2):
             for w in range(2):
-                if ((x or y) and (not(y == z)) and (not(w))) == 1:
-                    print(x, y, z, w)
-
-
+                if ((x or y) and (not(y == z) and (not(w)))) == 1:
+                    print(x,y,z,w)
 ```
 |X|Y|Z|W|
 |:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|0|1|0|0|
+|1|0|1|0|
+|1|1|0|0|
 # Ответ: zyxw
 # ТИП 8
 ## № 64938
@@ -523,7 +553,7 @@ for x in range(2):
 ```
 
 ```
-# Ответ:
+# Ответ: !!!!!!!!!!
 
 # Вариант 13
 # ТИП 2
@@ -541,14 +571,19 @@ for x in range(2):
     for y in range(2):
         for z in range(2):
             for w in range(2):
-                if ((x and y ) or (y and z)) == ((x <= w) and (w <= z)):
-                    print (x, y, z, w)
+                if ((x and y) or (y and z)) == ((x <= w) and (w <= z)):
+                    print(x,y,z,w)
 ```
-|X|Y|Z|W|
-|:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|X|Y|Z|W|+-|
+|:-:|:-:|:-:|:-:|:-:|
+|0|0|0|1|+3стр|
+|0|1|0|1|+2стр|
+|0|1|1|0|-|
+|0|1|1|1|+1стр|
+|1|0|0|0|-|
+|1|0|0|1|-|
+|1|0|1|0|-|
+|1|1|1|1|-|
 # Ответ: xwzy
 # ТИП 8
 ## № 9796
@@ -559,6 +594,20 @@ count = 0
 for i in product('АВСХ', repeat=5):
     if i.count('Х') == 1:
         count += 1
+print(count)
+```
+ИЛИ
+```
+i1 = 'АВСХ'
+count = 0
+for x in i1:
+    for y in i1:
+        for z in i1:
+            for w in i1:
+                for h in i1:
+                    i = x + y + z + w + h
+                    if i.count('Х') == 1:
+                        count += 1
 print(count)
 ```
 # Ответ: 405
