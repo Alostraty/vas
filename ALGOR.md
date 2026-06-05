@@ -745,7 +745,7 @@ for x in i1:
 print(count)    
 ```
 # Ответ: 24
-СТОП!!!
+
 # Вариант 17
 # ТИП 2
 ## № 45236
@@ -756,7 +756,7 @@ print(count)
 ||0|1||0|
 |||0||0|
 ```
-print("x y z w ")
+print("x y z w")
 for x in range(2):
     for y in range(2):
         for z in range(2):
@@ -764,11 +764,11 @@ for x in range(2):
                 if (not(x <= w) or (y == z) or y) == 0:
                     print(x,y,z,w)
 ```
-|X|Y|Z|W|
-|:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|X|Y|Z|W|+-|
+|:-:|:-:|:-:|:-:|:-:|
+|0|0|1|0|+3стр|
+|0|0|1|1|+2стр|
+|1|0|1|1|+1стр|
 # Ответ: zxwy
 # ТИП 8
 ## № 15795
@@ -781,14 +781,15 @@ for x in range(2):
 ##### 6.ААПА
 Под каким номером в списке идёт первое слово, в котором нет буквы А?
 ```
-from itertools import *
+from itertools import product
 count = 0
-for i in product('ПАРУС', repeat=4):
+for i in product(sorted("ПАРУС"),repeat=4):
     count += 1
-    print(count,i)
-
+    if 'А' not in i:
+        print(count)
 ```
-# Ответ: 157 АААА
+самую послед
+# Ответ: 157
 
 # Вариант 18
 # ТИП 2
@@ -801,18 +802,19 @@ for i in product('ПАРУС', repeat=4):
 ||||0|0|
 ```
 print("x y z w")
-for x in range(2):
-    for y in range(2):
-        for z in range(2):
-            for w in range(2):
-                if ((x == (not(y))) <= (y and (not(z))) or (z and (not(w)))) == 0:
+for x in range (2):
+    for y in range (2):
+        for z in range (2):
+            for w in range (2):
+                if ((x == (not(y))) <= (y and (not(z))) or (z and not(w))) == 0:
                     print(x,y,z,w)
 ```
-|X|Y|Z|W|
-|:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|X|Y|Z|W|+-|
+|:-:|:-:|:-:|:-:|:-:|
+|0|1|1|1|-|
+|1|0|0|0|+1стр|
+|1|0|0|1|+2стр|
+|1|0|1|1|+3стр|
 # Ответ: wzxy    
 # ТИП 8
 ## № 3700
@@ -827,7 +829,7 @@ for x in range(2):
 from itertools import *
 count = 0
 for i in product("БКФЦ", repeat=5):
-    count += 1
+    count += 1 #перед if count потому что ответ не выдает
     if count == 486: 
         print(count, i)
 ```
@@ -852,11 +854,11 @@ for x in range(2):
                 if ((x == z) <= (not(y) or w)) == (not((w <= z) or (x <= y))):
                     print(x,y,z,w)
 ```
-|X|Y|Z|W|
-|:-:|:-:|:-:|:-:|
-|||||
-|||||
-|||||
+|X|Y|Z|W|+-|
+|:-:|:-:|:-:|:-:|:-:|
+|0|1|0|0|+3стр|
+|1|0|0|1|+2стр|
+|1|1|1|0|+1стр|
 # Ответ: zyxw
 # ТИП 8
 ## № 3237
