@@ -946,11 +946,13 @@ for x in range(2):
 ```
 from itertools import *
 cnt = 0
-s = permutations('01234567',5)
+s = permutations('0234567', 5)
 for i in s:
-    p=''.join(i)
-    if p[0]!='0' and p.count('1')==0:
-        if int(p[0])%2 != int(p[1])%2 and int(p[1])%2 != int(p[2])%2 and int(p[2])%2 != int(p[3])%2 and int(p[3])%2 != int(p[4])%2:
+    if i[0] != '0':
+        if (int(i[0]) % 2 != int(i[1]) % 2 and
+            int(i[1]) % 2 != int(i[2]) % 2 and
+            int(i[2]) % 2 != int(i[3]) % 2 and
+            int(i[3]) % 2 != int(i[4]) % 2):
             cnt += 1
 print(cnt)
 ```
