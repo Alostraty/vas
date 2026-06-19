@@ -1130,6 +1130,7 @@ print(cnt)
 # 2 ТИП
 
 ## 28677 
+((x → y) ∨ (y ≡ w)) ∧ ((x ∨ z) ≡ w)
 ```
 print("x y z w")
 for x in range(2):
@@ -1142,6 +1143,7 @@ for x in range(2):
 # ОТВЕТ: zyxw
 
 ## 15124 
+(x ≡ y ) ∨ ((y ∨ z) → x)
 ```
 print("x y z")
 for x in range(0, 2):
@@ -1153,6 +1155,7 @@ for x in range(0, 2):
 # ОТВЕТ: xzy
 
 ## 26974
+(x ∨ y) ∧ ¬(y ≡ z) ∧ ¬w
 ```
 print("x y z w")
 for x in range(2):
@@ -1165,114 +1168,290 @@ for x in range(2):
 # ОТВЕТ: xzyw
 
 ## 15618
+(x ∧ ¬y) ∨ (y ≡ z) ∨ ¬w
 ```
-
+print("x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x and (not(y))) or (y == z) or (not(w))) == 0:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: wzyx
 
 ## 15970
+(x ∧ ¬y) ∨ (y ≡ z ) ∨ w
 ```
-
+print("x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x and (not(y))) or (y == z) or w) == 0:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: yxwz
 
 ## 18614
+ ((w → ¬x) ≡ (z → y)) ∧ (y ∨ w)
+```
+print("x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((w <= (not(x))) == (z <= y)) and (y or w)) == 0: # для 0 
+                    print(x,y,z,w)
 ```
 
 ```
-# ОТВЕТ:
+print("x y z w")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((w <= (not(x))) == (z <= y)) and (y or w)) == 1: # для 1 
+                    print(x,y,z,w)
+```
+# ОТВЕТ: xwyz
 
 ## 55589
+F1  =  (x → y)≡(w ∨ ¬ z),
+F2  =  (x → y)∧(¬w≡z).
 ```
-
+print("x y z w f1 f2")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                f1 = (x <= y) == (w or (not(z)))
+                f2 = (x <= y) and (not(w) == z)
+                print(x,y,z,w, "", int(f1), "", int(f2))
 ```
-# ОТВЕТ:
+# ОТВЕТ: xzyw
 
 ## 48423
+(x → (y ≡ w)) ∧ (y ≡ (w → z))
+```
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x <= (y == w)) and (y == (w <= z))) == 0: # для 0
+                    print(x,y,z,w)
 ```
 
 ```
-# ОТВЕТ:
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x <= (y == w)) and (y == (w <= z))) == 1: # для 1 
+                    print(x,y,z,w)
+```
+# ОТВЕТ: yxwz
 
 ## 15787
+((x → y ) ∧ (y → w)) ∨ (z ≡ ( x ∨ y))
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x <= y) and (y <= w)) or (z == (x or y))) == 0:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: ywzx
 
 ## 85678
+¬w ∨ ((z → x) → y)
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((not(w)) or ((z <= x) <= y)) == 0:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: yxwz
 
 ## 18578
+((x ∧ ¬y) ∨ (w → z)) ≡ (z ≡ x)
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x and (not(y))) or (w <= z)) == (z == x)) == 1:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: zywx
 
 ## 81786
+(x∨y)∧¬(y≡z)∧¬w
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x or y) and (not(y) == z) and (not(w))) == 1:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ
+# ОТВЕТ: zyxw
 
 ## 17320
+((x ∧ y) ∨ (y ∧ z)) ≡ ((x → w) ∧ (w → z))
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x and y) or (y and z)) == ((x <= w) and (w <= z))) == 1:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: xwzy
 
 ## 48450
+(w → (y ≡ z)) ∧ (y ≡ (z → x))
+```
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((w <= (y == z)) and (y == (z <= x))) == 1: # для 1
+                    print(x,y,z,w)
 ```
 
 ```
-# ОТВЕТ:
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((w <= (y == z)) and (y == (z <= x))) == 0: # для 0 
+                    print(x,y,z,w)
+```
+# ОТВЕТ: zwyx
 
 ## 40718
+ ((x → y) ∧ (z ∨ w)) → ((x ≡ w) ∨ (y ∧ ¬z))
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x <= y) and (z or w)) <= ((x == w) or (y and (not(z))))) == 0:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: yxwz
 
 ## 73828
+(x ≡ (y → z)) ∧ (y ≡ ¬(z → w)).
+```
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x == (y <= z)) and (y == (not(z) <= w))) == 0: для 0
+                    print(x,y,z,w)
 ```
 
+```
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x == (y <= z)) and (y == (not(z) <= w))) == 1: # для 1
+                    print(x,y,z,w)
 ```
 # ОТВЕТ:
 
 ## 45236
+¬ (x → w) ∨ (y ≡ z) ∨ y,
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((not(x) <= w) or (y == z) or y) == 0:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: zxwy
 
 ## 33504
+((x ≡ ¬y) → (y ∧ ¬z)) ∨ (z ∧ ¬w)
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x == (not(y))) <= (y and (not(z)))) or (z and (not(w)))) == 0:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: wzxy
 
 ## 64932
+((x ≡ z) → (¬y ∨ w)) ≡ ¬ ((w → z) ∨ (x → y))
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x == z) <= (not(y) or w)) == (not((w <= z) or (x <= y)))) == 1:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: zyxw
 
 ## 64887
+((x ≡ y) → (¬z ∨ w)) ≡ ¬ ((w → x) ∨ (y → z))
 ```
-
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if (((x == y) <= (not(z) or w)) == (not((w <= x) or (y <= z)))) == 1:
+                    print(x,y,z,w)
 ```
-# ОТВЕТ:
+# ОТВЕТ: wzyx
 
 ## 72587 
+(x → (z → w)) ∧ (z → (y ≡ ¬ w))
 ```
+print("x y z w ")
+for x in range(2):
+    for y in range(2):
+        for z in range(2):
+            for w in range(2):
+                if ((x <= (z <= w)) and (z <= (y == (not(w))))) == 0:
+                    print(x,y,z,w)
+```
+# ОТВЕТ: zxwy
 
-```
-# ОТВЕТ:
+
+
+
+
+
+
 
 # 8 ТИП
+
 ## 3697
 ```
 
